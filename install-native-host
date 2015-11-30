@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# NOTE -- this file from Google's example at https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/docs/examples/api/nativeMessaging/README.txt
+# NOTE -- this file based on Google's example at https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/docs/examples/api/nativeMessaging/README.txt
 # Copyright 2013 The Chromium Authors. All rights reserved.
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
@@ -15,7 +15,9 @@ if [ "$(uname -s)" == "Darwin" ]; then
   if [ "$(whoami)" == "root" ]; then
     TARGET_DIR="/Library/Google/Chrome/NativeMessagingHosts"
   else
-    #TARGET_DIR="$HOME/Library/Application Support/Google/Chrome/NativeMessagingHosts"
+    TARGET_DIR="$HOME/Library/Application Support/Google/Chrome/NativeMessagingHosts"
+
+    # TODO chromium compat
     TARGET_DIR="$HOME/Library/Application Support/Chromium/NativeMessagingHosts"
   fi
 else
