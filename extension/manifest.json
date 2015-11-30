@@ -1,6 +1,6 @@
 {
     "name": "Quick Repo Cloner",
-    "description": "Git-clone the current tab's GitHub/Bitbucket repo into a preset directory.",
+    "description": "Git-clone the current tab's GitHub/Bitbucket repository into a preset directory.",
     "version": "0.0.1",
     "manifest_version": 2,
 

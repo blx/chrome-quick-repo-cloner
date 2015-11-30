@@ -23,9 +23,9 @@
     /** Path -> {author: str, name: str}
      *  Grab first two components of path because most sites follow that URL scheme. */
     function parsePath(path) {
-        const parts =  path
-                       .split("/")
-                       .slice(1, 3)
+        const parts = path
+                      .split("/")
+                      .slice(1, 3)
         return {
             author: parts[0],
             name: parts[1]
