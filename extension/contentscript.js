@@ -6,6 +6,7 @@
 
     // To prevent any messages, set this to any non-side-effecting function.
     const yikes = alert
+    const info = alert
 
 
     /** Repo :: {author: str,
@@ -57,6 +58,7 @@
             chrome.runtime.sendMessage({
                 args: ["git", "clone", repo.gitUri, cloneDest]
             })
+            info("Cloning repo into " + cloneDest)
         }
         else {
             yikes("Couldn't detect repo, sorry!")
