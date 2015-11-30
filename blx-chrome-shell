@@ -1,0 +1,41 @@
+#!/usr/bin/env python
+
+import subprocess
+import sys
+import struct
+import json
+
+
+def read_msg():
+    """ -> Maybe str"""
+
+    text_length_bytes = sys.stdin.read(4)
+    
+    if len(text_length_bytes) == 0:
+        return None
+
+    text_length = struct.unpack('i', text_length_bytes)[0]
+
+    text = sys.stdin.read(text_length).decode('utf-8')
+    return json.loads(text)
+
+
+def output(msg):
+    """object -> """
+
+    encoded_msg = json.dumps(msg).encode('utf-8')
+
+    sys.stdout.write(struct.pack('I', len(encoded_msg)))
+
+    sys.stdout.write(encoded_msg)
+    sys.stdout.flush()
+
+
+
+if __name__ == "__main__":
+    msg = read_msg()
+    if msg:
+        # uhm yes this input is hella sanitized whatchu lookin at
+        subprocess.call(msg['args'])
+
+    output({"result": "success"})

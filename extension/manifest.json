@@ -1,0 +1,28 @@
+{
+    "name": "Quick Repo Cloner",
+    "description": "Git-clone the current tab's GitHub/Bitbucket repo into a preset directory.",
+    "version": "0.0.1",
+    "manifest_version": 2,
+
+    "browser_action": {
+        "default_title": "Clone this Git repo"
+    },
+    "web_accessible_resources": [
+        "contentscript.js"
+    ],
+    "background": {
+        "scripts": [
+            "main.js"
+        ],
+        "persistent": false
+    },
+    "options_ui": {
+        "page": "options.html",
+        "chrome_style": true
+    },
+    "permissions": [
+        "nativeMessaging",
+        "activeTab",
+        "storage"
+    ]
+}
