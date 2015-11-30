@@ -5,6 +5,11 @@ Instantly `git clone` a local copy of the GitHub/Bitbucket repository you're loo
 Requires very recent Chrome (45ish) at the moment because of gratuitous ES6 that I haven't setup a transpilation pipeline for yet.
 
 
+## How it works
+
+Clicking button runs `extension/main.js` which injects `extension/contentscript.js` into the page. The contentscript looks at the tab's URL/location and generates the path to its `.git` repository, if possible. Contentscript sends a message (`git clone <repo.git> repo`) back to `main.js`, which relays it to `blx-chrome-shell`, a Python script, using Chrome's "native host" messaging. All that the python script does is execute the command sent from the contentscript.
+
+
 ## Installation
 
 **Dependencies:** Git, Python.
